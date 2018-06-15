@@ -1,0 +1,19 @@
+---
+
+galaxy_info:
+  author: heriet
+  description: SonarQube with nginx (ssl reverse proxy) on Docker
+  license: Apache
+  min_ansible_version: 2.1
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - sonarqube

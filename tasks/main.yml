@@ -1,0 +1,27 @@
+---
+
+- name: create directory
+  file:
+    path: "{{ sonarqube_nginx_docker_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+
+- name: create docker-compose.yml
+  template:
+    src: docker-compose.yml
+    dest: "{{ sonarqube_nginx_docker_dir }}/docker-compose.yml"
+
+
+- name: create nginx default.conf
+  template:
+    src: nginx-default.conf
+    dest: "{{ sonarqube_nginx_docker_dir }}/nginx-default.conf"
+
+
+- name: docker-compose
+  docker_service:
+    project_src: "{{ sonarqube_nginx_docker_dir }}"
+    state: present
